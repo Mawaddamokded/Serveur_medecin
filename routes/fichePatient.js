@@ -42,9 +42,9 @@ Router.delete('/patient/:id_patient', (req, res) => {
     })
 });
 
-Router.get('/temps/', (req, res) => {
+Router.get('/temps', (req, res) => {
      /* WHERE `disponibilite`=1 */
-    pool.query("SELECT `temps`  FROM `temps_consultation` ",
+    pool.query("SELECT * FROM `temps_consultation`",
       (err, rows) => {
         if (!err)
             res.send(rows);
@@ -52,4 +52,7 @@ Router.get('/temps/', (req, res) => {
             console.log(err);
     })
 });
+
+
+
 module.exports = Router;
